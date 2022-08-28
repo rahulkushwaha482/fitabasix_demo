@@ -68,13 +68,19 @@ class HomeView extends GetView<HomeController> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(30.0),
-                    child: Container(
-                      height: 60,
-                      width: 60,
-                      color: Colors.white,
-                      child: const Icon(Icons.perm_identity_outlined),
+                  InkWell(
+                    onTap:controller.onProfileClick,
+                    child: Hero(
+                      tag: "profile_image",
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(30.0),
+                        child: Container(
+                          height: 60,
+                          width: 60,
+                          color: Colors.white,
+                          child: const Icon(Icons.perm_identity_outlined),
+                        ),
+                      ),
                     ),
                   ),
                   Column(
