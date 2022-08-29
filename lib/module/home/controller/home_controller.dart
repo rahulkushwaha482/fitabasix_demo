@@ -9,6 +9,7 @@ class HomeController extends GetxController {
   final _apiHelper = Get.find<ApiHelper>();
   Rx<AgeResponse> ageDetails = AgeResponse().obs;
 
+
   @override
   void onInit() {
     super.onInit();

@@ -1,4 +1,5 @@
 import 'package:fitabix_demo_app/constant/app_string.dart';
+import 'package:fitabix_demo_app/utils/my_painter.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../constant/app_theme.dart';
@@ -9,6 +10,11 @@ class HomeView extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData somTheme = new ThemeData(
+        primaryColor: Colors.blue,
+        accentColor: Colors.black,
+        backgroundColor: Colors.grey
+    );
     return SafeArea(
         child: Scaffold(
       bottomNavigationBar: BottomNavigationBar(
@@ -186,7 +192,17 @@ class HomeView extends GetView<HomeController> {
                             borderRadius: BorderRadius.circular(10)),
                         child: Container(
                           height: 200,
-                          child: Text('sf'),
+                          child: Center(
+                            child:   CustomPaint(
+                              painter: MyPainter(
+
+                              ),
+                              child: SizedBox(
+                                height: 200,
+                                width: 40,
+                              ),
+                            ),
+                          ),
                         ),
                       ),
                     )
@@ -194,6 +210,8 @@ class HomeView extends GetView<HomeController> {
                 ),
               ),
             ),
+
+
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: SizedBox(
