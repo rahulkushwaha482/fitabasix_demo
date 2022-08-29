@@ -2,6 +2,7 @@ import 'package:fitabix_demo_app/constant/app_string.dart';
 import 'package:fitabix_demo_app/utils/my_painter.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
 import '../../../constant/app_theme.dart';
 import '../controller/home_controller.dart';
 
@@ -179,8 +180,23 @@ class HomeView extends GetView<HomeController> {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10)),
                         child: Container(
-                          height: 200,
-                          child: Text('sf'),
+                          height: 250,
+                          child: Center(
+                            child: Padding(
+                              padding: const EdgeInsets.all(20.0),
+                              child: SizedBox(
+                                width: 40,
+                                child: LiquidLinearProgressIndicator(
+                                  value: 0.15, // Defaults to 0.5.
+                                  valueColor: AlwaysStoppedAnimation(Colors.grey), // Defaults to the current Theme's accentColor.
+                                  backgroundColor: Colors.white, // Defaults to the current Theme's backgroundColor.
+                                  borderColor: Colors.black,
+                                  borderWidth: 2.0,
+                                  direction: Axis.vertical, // The direction the liquid moves (Axis.vertical = bottom to top, Axis.horizontal = left to right). Defaults to Axis.vertical.
+                                ),
+                              ),
+                            ),
+                          ),
                         ),
                       ),
                     ),
@@ -191,7 +207,7 @@ class HomeView extends GetView<HomeController> {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10)),
                         child: Container(
-                          height: 200,
+                          height: 250,
                           child: Center(
                             child:   CustomPaint(
                               painter: MyPainter(
